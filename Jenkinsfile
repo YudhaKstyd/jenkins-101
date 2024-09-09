@@ -6,7 +6,16 @@ pipeline {
                 container('dind'){
                     echo "Building.."
                     sh '''
-                    docker --version
+                    docker build . -t yud-testing
+                    '''
+                }
+            }
+        }
+        stage('Tes'){
+            steps {
+                container('dind'){
+                    sh '''
+                    docker image ls
                     '''
                 }
             }
