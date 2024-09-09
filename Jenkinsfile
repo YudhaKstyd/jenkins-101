@@ -12,8 +12,6 @@ pipeline {
             steps {
                 echo "Building.."
                 sh '''
-                // cd myapp
-                // pip3 install -r requirements.txt
                 python3 --version
                 pip3 --version
                 '''
@@ -23,9 +21,7 @@ pipeline {
             steps {
                 echo "Testing.."
                 sh '''
-                // cd myapp
-                // python3 hello.py
-                // python3 hello.py --name=Brad
+
                 '''
             }
         }
