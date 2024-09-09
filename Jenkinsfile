@@ -11,15 +11,17 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building.."
+                sh '''
                 python3 --version
                 pip3 --version
+                '''
             }
         }
         stage('Test') {
             steps {
                 echo "Testing.."
                 sh '''
-
+                echo "runnig.."
                 '''
             }
         }
