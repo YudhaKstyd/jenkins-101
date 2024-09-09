@@ -6,7 +6,7 @@ pipeline {
                 container('dind'){
                     echo "Building.."
                     sh '''
-                    docker build . -t yud-testing
+                    docker build -t testing:v1 .
                     '''
                 }
             }
