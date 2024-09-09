@@ -6,7 +6,8 @@ pipeline {
                 container('dind'){
                     echo "Building.."
                     sh '''
-                    docker build -t testing:v1 .
+                    cd myapp
+                    pip install -r requirements.txt
                     '''
                 }
             }
@@ -14,8 +15,11 @@ pipeline {
         stage('Tes'){
             steps {
                 container('dind'){
+                    echo "testing"
                     sh '''
-                    docker image ls
+                    cd myapp
+                    python3 hello.py
+                    python3 hello.py --name=Yud
                     '''
                 }
             }
