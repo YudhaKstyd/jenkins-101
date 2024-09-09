@@ -6,7 +6,7 @@ pipeline {
                 container('dind'){
                     echo "Building.."
                     sh '''
-                    docker
+                    docker --version
                     '''
                 }
             }
