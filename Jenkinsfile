@@ -1,8 +1,5 @@
 pipeline {
-    agent { 
-        node {
-            label 'jenkins-jenkins-agent'
-            }
+    agent any { 
       }
     triggers {
         pollSCM '* * * * *'
@@ -10,28 +7,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo "Building.."
-                sh '''
-                python3 --version
-                pip3 --version
-                '''
+                container('dind'){
+                    echo "Building.."
+                    sh '''
+                    docker --version
+                    '''
+                }
             }
-        }
-        stage('Test') {
-            steps {
-                echo "Testing.."
-                sh '''
-                echo "runnig.."
-                '''
-            }
-        }
-        stage('Deliver') {
-            steps {
-                echo 'Deliver....'
-                sh '''
-                echo "doing delivery stuff.."
-                '''
-            }
-        }
     }
 }
